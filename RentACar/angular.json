@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular": {
+    "RentACar": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular",
+            "outputPath": "dist/rent-acar",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,9 +25,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+            ]
           },
           "configurations": {
             "production": {
@@ -60,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular:build:production"
+              "browserTarget": "RentACar:build:production"
             },
             "development": {
-              "browserTarget": "angular:build:development"
+              "browserTarget": "RentACar:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular:build"
+            "browserTarget": "RentACar:build"
           }
         },
         "test": {
@@ -96,6 +99,6 @@
     }
   },
   "cli": {
-    "analytics": "4e8a83c8-2b66-4fe7-8610-e7a78967b15c"
+    "analytics": "db4438b2-8c84-4a6a-a5ac-e26ef8341913"
   }
 }
