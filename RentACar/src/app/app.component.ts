@@ -12,15 +12,15 @@ export class AppComponent {
   carId = 0;
   rentACarId = 0;
   car:any;
-  addUser(name:any, surname:any,gander:any,age:any,licance:any){
+  addUser(gander:any){
     this.userId++;
-    let user = new User(this.userId,name,surname,gander,age,licance);
+    let user = new User(this.userId,gander);
     this.model.addUser(user);
   }
 
-  addCar(brand:any,model:any,color:any,price:any){
+  addCar(model:any,color:any,price:any){
     this.carId++;
-    let car=new Car(this.carId,brand,model,color,price);
+    let car=new Car(this.carId,model,color,price);
     this.model.addCar(car)
   }
 
@@ -31,6 +31,8 @@ export class AppComponent {
     let rent=new RentACar(this.rentACarId,userid,carid,day,total);
     this.model.addRentACar(rent);
   }
+
+  
 
   getUserList(){
     return this.model.Users;

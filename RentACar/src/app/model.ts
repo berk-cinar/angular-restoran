@@ -21,29 +21,19 @@ export class Model {
 
 export class User {
     Id;
-    Name;
-    Surname;
-    Age;
     Gander;
-    Licance;
-    constructor(id:any,name:any,surname:any,age:any,gander:any,licance:any) {
+    constructor(id:any,gander:any) {
         this.Id=id;
-        this.Name=name;
-        this.Surname=surname;
-        this.Age=age;
         this.Gander=gander;
-        this.Licance=licance;
     }
 }
 export class Car {
     Id;
-    Brand;
     Model;
     Color;
     Price;
-    constructor(id:any,brand:any,model:any,color:any,price:any) {
+    constructor(id:any,model:any,color:any,price:any) {
         this.Id=id;
-        this.Brand=brand;
         this.Model=model;
         this.Color=color;
         this.Price=price;

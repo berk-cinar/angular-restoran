@@ -1,135 +1,168 @@
-<div class="container">
-  <div class="row">
-      <div class="col-4">
-        <h2>Add Table</h2>
-        <hr>
-        <label>Name</label>
-        <input type="text" #UserName class="form-control mb-3" id="name" name="name">
-        <label>Surname</label>
-        <input type="text" #Usersurname class="form-control mb-3">
-        <label>Gander</label>
-        <select class="form-control mb-3" #UserGander>
-            <option value="Male">Male</option>
-            <option value="Famale">Famale</option>
-        </select>
-        <label>Age</label>
-        <input type="number" min="1" max="100" #UserAge class="form-control mb-3">
-        <label>Licance </label>&nbsp;
-        <input type="checkbox"  #UserLicance class=" mb-3">
-        <button class="btn btn-primary form-control mb-3"(click)="addUser(UserName.value,Usersurname.value,UserGander.value,UserAge.value,UserLicance.value)">Add User</button>
-      </div>
-      <div class="col-4">
-        <h2>Add Food</h2>
-        <hr>
-        <label>Brand</label>
-        <input type="text" #CarBrand class="form-control mb-3">
-        <label>Model</label>
-        <input type="text" #CarModel class="form-control mb-3">
-        <label>Color</label>
-        <select class="form-control mb-3" #CarColor>
-            <option value="White">White</option>
-            <option value="Black">Black</option>
-            <option value="Red">Red</option>
-            <option value="Green">Green</option>
-            <option value="Blue">Blue</option>
-            <option value="Pink">Pink</option>
-          </select>
-        <label>Price</label>
-        <input type="number" min="1"  #CarPrice class="form-control mb-3">
-        
-        <button class="btn btn-primary form-control" (click)="addCar(CarBrand.value,CarModel.value,CarColor.value,CarPrice.value)">Add Car</button>
-      </div>
-      <div class="col-4">
-        <h2>Made an order</h2>
-        <hr>
-        <label>User</label>
-        <select class="form-control mb-3" #RentUser>
-            <option value="{{item.Id}}"  *ngFor="let item of getUserList()">{{ item.Name +" "+item.Surname }}</option>
-        </select>
-        <label>Car</label>
-        <select class="form-control mb-3" #RentCar>
-          <option value="{{item.Id}}"  *ngFor="let item of getCarList()">{{ item.Brand +" "+item.Model }}</option>
+<nav class="navbar navbar-expand-lg bg-dark">
+  <a class="navbar-brand" href="#">
+    <img class="rounded-circle" height="70px" src="https://marketplace.canva.com/EAESMsqG9rI/3/0/1600w/canva-grey-%26-green-elegant-minimal-good-taste-food-restaurant-logo-jeSR74GRMC8.jpg" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="ms-4 text-center nav-item active">
+        <a style="width: 100px; background-color: rgba(255, 255, 255, 0.1);" class="border border-white rounded-3 nav-link text-white" href="#"> Anasayfa </a>
+      </li>
+      <li class="ms-4 text-center  nav-item">
+        <a style="width: 100px; background-color: rgba(255, 255, 255, 0.1);" class=" border border-white rounded-3 nav-link text-white" href="#"> Mutfak </a>
+      </li>
+      <li class="ms-4 text-center nav-item">
+        <a style="width: 100px; background-color: rgba(255, 255, 255, 0.1);" class=" border border-white rounded-3 nav-link text-white" href="#"> Resepsiyon </a>
+      </li>
+      <li class=" w-100 ms-4 text-center nav-item">
+        <a  style="width: 100px; background-color: rgba(255, 255, 255, 0.1);"  class="border border-white rounded-3  nav-link text-white" href="#"> Vale </a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-        </select>
-        <label>Day</label>
-        <input type="number" value="1" min="1" #RentDay class="form-control mb-3">
-        
-        <button class="btn btn-primary form-control" (click)="addRentACar(RentUser.value,RentCar.value,RentDay.value)">Add Car</button>
+<div class="container mt-5  row">
+  <div class="col-3"></div>
+  <div class="accordion col-6" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <h3>Masa ekle</h3>
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div>
+            <label>Masa No</label>
+            <select class="form-control mb-3" #UserGander>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+            </select>
+            <button class="btn btn-dark form-control mb-3"(click)="addUser(UserGander.value)">Masa Ekle</button>
+          </div>
+           </div>
       </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <h3>Sipariş Ekle</h3>
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div>
+            <label> Kategoriler </label>
+            <select class="form-control mb-3">
+              <option value="Deniz Ürünleri">Deniz Ürünleri</option>
+              <option value="Black">Aperatifler</option>
+              <option value="Green"> Kızartmalar </option>
+              <option value="Blue">Makarnalar </option>
+              <option value="Red">İçecekler</option>
+              </select>
+            <label> Deniz Ürünleri </label>
+            <select class="form-control mb-3" #CarColor>
+
+                <option value="Levrek">Levrek</option>
+                <option value="Mezgit">Mezgit</option>
+                <option value="Somon">Somon</option>
+                <option value="Karides">Karides</option>
+              </select> 
+           
+               <label>Not</label>
+              <input type="text" #CarModel class="form-control mb-3">
+
+            <label>Price</label>
+            <input type="number" min="1"  #CarPrice class="form-control mb-3">
+
+            <button class="btn btn-dark form-control" (click)="addCar(CarModel.value,CarColor.value,CarPrice.value)">
+              Sipariş Ekle
+            </button>
+          </div>
+           </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <h3>Hesap Oluştur</h3>
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <label>Masa</label>
+          <select class="form-control mb-3" #RentUser>
+              <option value="{{item.Id}}"  *ngFor="let item of getUserList()">{{ item.Gander +" " }}</option>
+          </select>
+          <label>Car</label>
+          <select class="form-control mb-3" #RentCar>
+            <option value="{{item.Id}}"  *ngFor="let item of getCarList()"> Levrek- Default </option>
+            <option value="{{item.Id}}"  *ngFor="let item of getCarList()"> {{ item.CarColor }}</option>
+            
+          </select>
+          
+
+          <label>Adet</label>
+          <input type="number" value="1" min="1" #RentDay class="form-control mb-3">
+
+          <button class="btn btn-dark form-control" (click)="addRentACar(RentUser.value,RentCar.value,RentDay.value)">
+            Oluştur</button>  </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+
       
     
   </div>
-  <hr>
-  <div class="row">
-      <div class="col-6 text-center">
-          <h2>Table List</h2>
+  <div class="row mt-5">
+      <div class="col-3"></div>
+
+      <div class="col-6 mb-5 text-center">
+          <h2>Yemekler</h2>
           <hr>
           <table class="table table-hover table-bordered">
             <thead>
               <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Age</th>
-                <th>Gander</th>
-                <th>Licance</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of getUserList()">
-                <td>{{ item.Id }}</td>
-                <td>{{ item.Name }}</td>
-                <td>{{ item.Surname }}</td>
-                <td>{{ item.Age }}</td>
-                <td>{{ item.Gander }}</td>
-                <td>{{ item.Licance }}</td>
-              </tr>
-            </tbody>
-          </table>
-      </div>
-      <div class="col-6 text-center">
-          <h2>Food List</h2>
-          <hr>
-          <table class="table table-hover table-bordered">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Brand</th>
-                <th>Model</th>
-                <th>Color</th>
-                <th>Price</th>
+                <th>Yemek</th>
+                <th>Not</th>
+                <th>Fiyat</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of getCarList()">
                 <td>{{ item.Id }}</td>
-                <td>{{ item.Brand }}</td>
-                <td>{{ item.Model }}</td>
                 <td>{{ item.Color }}</td>
+                <td>{{ item.Model }}</td>
                 <td>{{ item.Price+" TL" }}</td>
               </tr>
             </tbody>
           </table>
       </div>
-      <div class="col-12 text-center">
-          <h2>Order List</h2>
+      <div class="col-3"></div>
+      <div class="col-3 mb-5"></div>
+      <div class="col-6 text-center">
+          <h2>Siparişler</h2>
           <hr>
           <table class="table table-hover table-bordered">
             <thead>
               <tr>
                 <th>#</th>
-                <th>User</th>
-                <th>Car</th>
-                <th>Day</th>
-                <th>Total Price</th>
+                <th>Masa no</th>
+                <th>Adet</th>
+                <th>Hesap</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of getRentACarList()">
                 <td>{{ item.Id }}</td>
-                <td>{{ item.UserId }}</td>
-                <td>{{ item.CarId }}</td>
-                <td>{{ item.Day }}</td>
+                <td>{{ item.Gander }}</td>
+                <td>{{ item.Day }}</td> 
                 <td>{{ item.TotalPrice+" TL" }}</td>
               </tr>
             </tbody>
