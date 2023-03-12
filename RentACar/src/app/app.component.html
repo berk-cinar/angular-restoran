@@ -98,7 +98,7 @@
           <select class="form-control mb-3" #RentUser>
               <option value="{{item.Id}}"  *ngFor="let item of getUserList()">{{ item.Gander +" " }}</option>
           </select>
-          <label>Car</label>
+          <label>Yemek</label>
           <select class="form-control mb-3" #RentCar>
             <option value="{{item.Id}}"  *ngFor="let item of getCarList()"> Levrek- Default </option>
             <option value="{{item.Id}}"  *ngFor="let item of getCarList()"> {{ item.CarColor }}</option>
